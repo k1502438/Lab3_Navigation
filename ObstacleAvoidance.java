@@ -13,7 +13,7 @@ public class ObstacleAvoidance extends Thread{
 	private static final double BAND_CENTER = 15;
 	private static final double BAND_MARGIN = 1.7;
 	private static final int ROTATE_SPEED = 60;
-	private static final int FORWARD_SPEED = 120;
+	private static final int FORWARD_SPEED = 150;
 	private static final double WR = 2.125; //wheel radius
 	private static final double WB = 15.5;	//distance between wheels
 	private static final double WBR = WB/2; //half distance between wheels (effective radius of rotation)
@@ -52,7 +52,7 @@ public class ObstacleAvoidance extends Thread{
 		
 		turnBy90();
 		sensorMotor.setSpeed(ROTATE_SPEED);
-		sensorMotor.rotate(-90, false);
+		sensorMotor.rotate(-70, false);
 		finalTheta = oppositeTheta(this.odometer.getTheta());
 		
 		runloop:
@@ -67,7 +67,7 @@ public class ObstacleAvoidance extends Thread{
 				resolved = true;
 				leftMotor.stop();
 				rightMotor.stop();
-				sensorMotor.rotate(90,false);
+				sensorMotor.rotate(70,false);
 				break runloop;
 			}
 			
